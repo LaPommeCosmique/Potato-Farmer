@@ -1,5 +1,8 @@
+// on heroku
+
 var http = require('http');
 var url = require('url');
+const port = process.env.PORT || 3000;
 
 class Player {
     x = 0;
@@ -59,7 +62,7 @@ http.createServer(function (req, res) {
       parseQuery(res, query);
     } else sendError(res, 400);
   } else sendError(res, 400);
-}).listen(8080);
+}).listen(port);
 
 function sendError (res, code) { res.writeHead(code); res.end(); }
 
